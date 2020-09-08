@@ -1,26 +1,27 @@
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
 import {
     Link,
 } from 'react-router-dom';
 
 
 class Navigation extends Component {
+
     render() {
         const notLogged =
             <ul className='linkList flex-box'>
-                <li><Link className='link' to="/login">Zaloguj się</Link></li>
-                <li><Link className='link register' to="/register">Załóż konto</Link></li>
+                <li><Link className='link' to="/login">Log in</Link></li>
+                <li><Link className='link' to="/register">Register</Link></li>
             </ul>;
         const logged =
             <ul className='linkList flex-box'>
-                <li><Link className='link' to="/logout">Wyloguj się</Link></li>
+                <li><Link className='link' to="/logout">Log out</Link></li>
             </ul>;
         
         return (
-         <>
-            <h1>Welcome to Navigation page</h1>
-        </>
+         <section className="navigation">
+            <h1 className='header'>CRUD App</h1>
+            {this.props.isLogged ? logged : notLogged}
+        </section>
         )
     }
 }
